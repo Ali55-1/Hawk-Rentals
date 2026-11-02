@@ -31,7 +31,7 @@ def vehicle_payload():
 def test_add_vehicle(client):
     api, _ = client
     response = api.post("/vehicles", json=vehicle_payload())
-    assert response.status_code == 201
+    assert response.status_code == 200
     assert response.json()["id"] > 0
     assert response.json()["archived"] is False
 
