@@ -42,7 +42,7 @@ def get_vehicles(category: str | None = None):
         return session.exec(query).all()
 
 
-@app.post("/vehicles", response_model=Vehicle, status_code=201)
+@app.post("/vehicles", response_model=Vehicle)
 def create_vehicle(request: VehicleCreate):
     with Session(engine) as session:
         vehicle = Vehicle(**request.model_dump())
